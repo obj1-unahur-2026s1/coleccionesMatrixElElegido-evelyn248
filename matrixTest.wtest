@@ -1,9 +1,18 @@
+import matrix.*
 
+describe "Tests de matrix el elegido" {
 
-describe "group of tests " {
+  test "La nave inicia con 3 pasajeros, el elegido presente y Neo es el más vital" {
+    assert.equals(3, nave.cantidadDePasajeros())
+    assert.that(nave.estaElElegido())
+    assert.that(neo.esElegido())
+    assert.equals(neo, nave.pasajeroMayorVitalidad())
+  }
 
-  test "test 01" {
-    assert.equals(100, 50+50)
+  test "La nave no está equilibrada con Trinity, pero sí al quedar solo Neo y Morfeo"{
+    assert.equals(false, nave.vitalidadEquilibrada())
+    nave.bajarPasajero(trinity)
+    assert.equals(true, nave.vitalidadEquilibrada())
   }
 
 }
